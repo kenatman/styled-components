@@ -5,12 +5,6 @@ const GlobalStyle = createGlobalStyle`
 body{padding:0;
   margin:0;}`;
 
-const Container = styled.div`
-  width: 100%;
-  height: 100vh;
-  background-color: lightSalmon;
-`;
-
 const Card = styled.div`
   background-color: tomato;
 `;
@@ -26,6 +20,16 @@ const Form = () => (
     <Button>Hello</Button>
   </Card>
 );
+
+const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+  background-color: lightSalmon;
+
+  ${Card} {
+    background-color: blue;
+  }
+`;
 
 function App() {
   return (
