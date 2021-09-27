@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# Extras
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This ia a collection of packages that I use and find incredibly usefull when I'm working with Styled Components
 
-## Available Scripts
+## styled-components-breakpoint
 
-In the project directory, you can run:
+This one is a must have when you're working with responsive applications.
 
-### `yarn start`
+[Check it out here](https://github.com/jameslnewell/styled-components-breakpoint)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```js
+import styled from "styled-components";
+import breakpoint from "styled-components-breakpoint";
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+const Heading = styled.h1`
+  color: #444;
+  font-family: sans-serif;
 
-### `yarn test`
+  font-size: 12px;
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  ${breakpoint("tablet")`
+    font-size: 16px;
+  `} ${breakpoint("desktop")`
+    font-size: 24px;
+  `};
+`;
 
-### `yarn build`
+export default Heading;
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Styled Flex Component
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This one makes creating layouts with Flexbox very very fast. You just have to learn the props and you are good to go.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[Check it out here](https://github.com/SaraVieira/styled-flex-component)
 
-### `yarn eject`
+```js
+import React from "react";
+import Flex, { FlexItem } from "styled-flex-component";
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+export default () => (
+  <Flex center full>
+    <FlexItem order="2">World</FlexItem>
+    <FlexItem order="1">Hello</FlexItem>
+  </Flex>
+);
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Styled Reset
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Some people need to use a reset.css when starting a new project, here it is. (use it with injectGlobal)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+[Check it oute here](https://github.com/zacanger/styled-reset)
 
-## Learn More
+```js
+import { injectGlobal } from "styled-components";
+import reset from "styled-reset";
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+injectGlobal`
+  ${reset}
+  /* other styles */
+`;
+import baseStyles from "./base-styles";
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+const App = () => {
+  return <div>Hi!</div>;
+};
 
-### Code Splitting
+export default App;
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Awesome Styled Components
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you want to find more packages, helpers, tutorials etc... Go to [Awesome Styled Components](https://github.com/styled-components/awesome-styled-components)
